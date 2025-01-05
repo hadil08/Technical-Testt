@@ -1,0 +1,29 @@
+<div class="container" *ngIf="!submitted">
+  <div class="text-center" style="width: 400px;">
+    <h2>Type your activation code</h2>
+    <form [formGroup]="activationForm" (ngSubmit)="submitActivationCode()">
+      <input type="text" class="form-control" formControlName="activationCode" maxlength="6">
+      <button class="btn btn-primary mt-3" type="submit">Submit</button>
+      <!-- Move the error message container inside the form -->
+      <div *ngIf="activationForm.get('activationCode')?.invalid && (activationForm.get('activationCode')?.dirty || activationForm.get('activationCode')?.touched)" class="mt-3">
+        Please enter a 6-digit activation code.
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="container" *ngIf="submitted && isOkay">
+  <div class="activation-message">
+    <h2>Activation Successful!</h2>
+    <p>Your account has been successfully activated.</p>
+    <button class="btn btn-primary" (click)="redirectToLogin()">Go to Login</button>
+  </div>
+</div>
+
+<div class="container" *ngIf="submitted && !isOkay">
+  <div class="activation-error">
+    <h2>Activation Failed!</h2>
+    <p>{{ message }}</p>
+    <button class="btn btn-primary" (click)="submitted = false">Try again</button>
+  </div>
+</div>

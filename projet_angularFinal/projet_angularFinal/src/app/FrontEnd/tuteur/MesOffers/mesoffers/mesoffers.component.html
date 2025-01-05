@@ -1,0 +1,98 @@
+<app-header></app-header>
+<main class="main-content mt-0">
+  <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="
+        background-image: url('assets/frontOffice/img/imagee.jpg');
+        background-position: top;
+        position: relative;
+      ">
+    <span class="mask bg-gradient-dark opacity-6"></span>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 text-center mx-auto">
+          <h1 class="text-white mb-2 mt-5"> </h1>
+          <p class="text-lead text-white">
+            Découvrez tout ce que notre université a à offrir.
+            <br>
+            Explorez nos formations, cours, évenements et faites vos réservations en quelques
+            clics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-xl">
+    <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+      <div class="col-xl-12 col-lg-12 mx-auto">
+        <div class="card z-index-0 my-5">
+          <div class="card-header pt-4">
+            <div class="row">
+              <h1 class="col-9 text-success" style=" color :rgb(6 187 204) !important;"><strong>
+                  Mes Offres</strong><span class="text-danger">
+                </span>
+              </h1>
+              <div class="row">
+                <div class="col-9"></div>
+                <a routerLink="/Addoffer" class="col-2 btn bg-gradient-success w-20 mx-2"> <strong
+                    class="text-white">Ajouter</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card mx-3 my-5">
+            <table class="table table-responsive" class="table table-responsive table-hover">
+              <thead>
+                <tr>
+               
+                   <th>Titre</th>
+                    <th>Description</th>
+                    <th>dateSoumission</th>
+                    <th>Statut</th> 
+
+                  <th>Actions</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let offer of cours | paginate: { itemsPerPage: itemsPerPage, currentPage: page }">
+
+                  <td>{{ offer.titre }}</td>
+                  <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">{{ offer.description }}</td>
+
+                  <!-- <td>{{ offer.description }}</td>-->
+                  <td>{{ offer.dateSoumission | date:'yyyy-MM-dd' }}</td>
+                  <td
+                    [ngClass]="{ 'text-success': offer.statut.includes('Acceptee'), 'text-danger': offer.statut.includes('Rejected')  }">
+                    <strong>{{ offer.statut }}</strong></td>
+                  <!--   <td > 
+                                  <img [src]="offer.imageUrl" alt="Image de l'offre"style="width: 50px">
+                               </td> -->
+                  <td class="col">
+
+
+                    <a class="btn text-danger" (click)="deleteCour(offer.offerId)">
+
+                      <img class="img-fluid" src="assets/frontOffice/img/delete.jpg" alt="" style="width: 30px">
+                      <span class="material-icons"> </span>
+                    </a>
+
+                    <a class="btn text-danger" (click)="openUniversiteUpdate(offer)"> <img class="img-fluid"
+                        src="assets/frontOffice/img/updattt.jpg" alt="" style="width: 30px">
+                      <span class="material-icons"> </span>
+                    </a>
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+            <!-- Pagination -->
+  
+            <pagination-controls (pageChange)="page = $event" (maxSize)="itemsPerPage"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>

@@ -1,0 +1,11 @@
+/* calender.component.css */
+
+/* Set the container background color */
+
+  .disabled-link {
+    pointer-events: none; /* Disable pointer events */
+    color: gray; /* Change text color to gray */
+    cursor: not-allowed; /* Change cursor to not-allowed */
+    text-decoration: none; /* Remove underline */
+}
+

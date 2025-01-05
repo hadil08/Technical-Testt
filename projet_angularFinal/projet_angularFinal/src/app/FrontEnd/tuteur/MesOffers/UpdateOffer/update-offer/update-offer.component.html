@@ -1,0 +1,62 @@
+<!-- Section update  -->
+<div class=" m-5 mx-0 custom-background">
+    <div class="card-body p-6" style="background-color: white"> <!-- Bouton Annuler -->
+        <div class="row justify-content-end">
+            <div class="form-group col-md-2 mt-3 text-end me-3">
+                <button class="btn btn-primary btn-danger" (click)="onAnnulerClick()">
+                    <!-- <i class="fas fa-close me-2"></i> -->
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+        <h1 class="text-center">Update</h1>
+
+        <div class="mx-3 my-1 custom-background">
+            <form #universiteForm="ngForm">
+                <div class="row">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="nomuniversite">titre</label>
+                            <input type="text" class="form-control" id="titre" name="titre" [(ngModel)]="offer.titre" />
+
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="nomuniversite">description</label>
+                            <input type="text" class="form-control" id="description" name="description"
+                                [value]="offer.description" [(ngModel)]="offer.description" />
+
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="nomuniversite">dateSoumission</label>
+                            <input type="date" class="form-control" id="dateSoumission" name="dateSoumission"
+                                [value]="offer.dateSoumission" [(ngModel)]="offer.dateSoumission" />
+
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="nomuniversite">statut</label>
+                            <input type="text" class="form-control" id="statut" name="statut" 
+                                [value]="offer.statut" [(ngModel)]="offer.statut" disabled/>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-2 mt-3">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary" (click)="onUpdate(offer)">
+                                Update
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

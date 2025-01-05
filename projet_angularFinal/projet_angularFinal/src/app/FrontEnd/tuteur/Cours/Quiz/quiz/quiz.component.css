@@ -1,0 +1,60 @@
+/* Style pour le formulaire */
+form {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style pour les étiquettes */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Style pour les champs de saisie */
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style pour les boutons radio */
+  .form-check-input {
+    margin-right: 5px;
+  }
+  
+  /* Style pour le bouton Ajouter */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 4px;
+    color: #fff;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-check-label {
+    margin-left: 10px;
+  }
+
+  .btn-primary {
+    margin-top: 10px;
+  }
+
+  .success-message {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    border-radius: 5px;
+  }

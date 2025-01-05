@@ -1,0 +1,39 @@
+<form (ngSubmit)="submitForm()" #questionForm="ngForm" class="popup-form">
+  <div class="success-message" *ngIf="ajoutReussi">
+    Question ajouté avec succès.
+  </div>
+  
+    <p>Add new question!</p>
+  
+    
+    <div class="form-group">
+      <label for="question">Question:</label>
+      <input type="text" class="form-control" id="question" name="question" [(ngModel)]="newquestion.question" required>
+    </div>
+  
+    <div class="form-group">
+      <label>Réponse 1:</label>
+      <input type="radio" class="form-check-input" id="rep1" name="correctAnswer" value="rep1" [(ngModel)]="correctAnswer" required>
+      <label class="form-check-label" for="rep1">This is true:</label>
+      <input type="text" class="form-control" id="rep1Text" name="rep1" [(ngModel)]="newquestion.rep1" required>
+    </div>
+  
+    <div class="form-group">
+      <label>Réponse 2:</label>
+      <input type="radio" class="form-check-input" id="rep2" name="correctAnswer" value="rep2" [(ngModel)]="correctAnswer" required>
+      <label class="form-check-label" for="rep2">This is true:</label>
+      <input type="text" class="form-control" id="rep2Text" name="rep2" [(ngModel)]="newquestion.rep2" required>
+    </div>
+  
+    <div class="form-group">
+      <label>Réponse 3:</label>
+      <input type="radio" class="form-check-input" id="rep3" name="correctAnswer" value="rep3" [(ngModel)]="correctAnswer" required>
+      <label class="form-check-label" for="rep3">This is true:</label>
+      <input type="text" class="form-control" id="rep3Text" name="rep3" [(ngModel)]="newquestion.rep3" required>
+    </div>
+  
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-primary" (click)="termine()">Termine</button>
+  
+  </form>
+  

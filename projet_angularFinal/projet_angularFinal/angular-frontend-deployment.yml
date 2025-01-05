@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-frontend
+  labels:
+    app: angular-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-frontend
+  template:
+    metadata:
+      labels:
+        app: angular-frontend
+    spec:
+      containers:
+        - name: angular-frontend
+          image: hadil2000/frontend:latest # Remplacez par votre image Docker
+          ports:
+            - containerPort: 80 # NGINX utilise généralement le port 80 par défaut
+

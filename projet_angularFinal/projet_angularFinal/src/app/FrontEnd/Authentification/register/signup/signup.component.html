@@ -1,0 +1,168 @@
+<router-outlet></router-outlet>
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+             <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+         </a>
+         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+             <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarCollapse">
+             <div class="navbar-nav ms-auto p-4 p-lg-0">
+                 <a href="home" class="nav-item nav-link active">Home</a>
+                 <a href="about.html" class="nav-item nav-link">About</a>
+                 <a href="contact.html" class="nav-item nav-link">Contact</a>
+             </div>
+             <a href="login"  class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+         </div>
+     </nav>
+     <!-- Navbar End -->
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Responsive Registration Form | CodingLab </title>
+    <link rel="stylesheet" href="signup.component.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+       /* CSS to make error message appear in red */
+       .error-message {
+         color: red;
+       }
+     </style>
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" enctype="multipart/form-data">
+        <div class="user-details">
+          <!-- First Name -->
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input matInput
+                   [(ngModel)]="registerForm.value['userFirstName']"
+                   name="userFirstName"
+                   id="userFirstName"
+                   placeholder="Enter your Firstname"
+                   required
+                   pattern="[a-zA-Z]+"
+                   #userFirstName="ngModel">
+            <mat-error *ngIf="userFirstName.touched && userFirstName.invalid" class="error-message">
+                <span *ngIf="userFirstName.errors?.['required']">This field is mandatory.</span>
+                <span *ngIf="userFirstName.errors?.['pattern']">Invalid input. Only alphabets are allowed.</span>
+            </mat-error>
+          </div>
+          
+          <!-- Last Name -->
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input matInput 
+                   [(ngModel)]="registerForm.value['userLastName']"
+                   name="userLastName"
+                   id="userLastName"
+                   placeholder="Lastname"
+                   required
+                   pattern="[a-zA-Z]+"
+                   #userLastName="ngModel">
+            <mat-error *ngIf="userLastName.touched && userLastName.invalid" class="error-message">
+                <span *ngIf="userLastName.errors?.['required']">This field is mandatory.</span>
+                <span *ngIf="userLastName.errors?.['pattern']">Invalid input. Only alphabets are allowed.</span>
+            </mat-error>
+          </div>
+          
+          <!-- Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input matInput
+                   [(ngModel)]="registerForm.value['userName']"
+                   name="userName"
+                   id="userName"
+                   placeholder="Enter your Email"
+                   required
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   #userName="ngModel">
+            <mat-error *ngIf="userName.touched && userName.invalid" class="error-message">
+                <span *ngIf="userName.errors?.['required']">This field is mandatory.</span>
+                <span *ngIf="userName.errors?.['pattern']">Invalid email format.</span>
+            </mat-error>
+          </div>
+          
+          <!-- Phone Number -->
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input matInput
+                   [(ngModel)]="registerForm.value['contactNumber']"
+                   name="contactNumber"
+                   id="contactNumber"
+                   placeholder="Enter your number"
+                   required
+                   pattern="^[0-9]{8}$"
+                   #contactNumber="ngModel">
+            <mat-error *ngIf="contactNumber.touched && contactNumber.invalid" class="error-message">
+                <span *ngIf="contactNumber.errors?.['required']">This field is mandatory.</span>
+                <span *ngIf="contactNumber.errors?.['pattern']">Invalid phone number format.</span>
+            </mat-error>
+          </div>
+          
+          <!-- Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input matInput
+                   [(ngModel)]="registerForm.value['userPassword']"
+                   name="userPassword"
+                   id="userPassword"
+                   type="password"
+                   placeholder="Password"
+                   required
+                   #userPassword="ngModel">
+            <mat-error *ngIf="userPassword.touched && userPassword.invalid" class="error-message">
+                <span *ngIf="userPassword.errors?.['required']">This field is mandatory.</span>
+            </mat-error>
+          </div>
+         <!-- Confirm Password -->
+<div class="input-box">
+  <span class="details">Confirm Password</span>
+  <input matInput
+         [(ngModel)]="confirmPassword"
+         name="confirmPassword"
+         id="confirmPassword"
+         type="password"
+         placeholder="Confirm Password"
+         required>
+  <mat-error *ngIf="confirmPassword !== registerForm.value['userPassword']" class="error-message">
+    Passwords do not match.
+  </mat-error>
+</div>
+
+          <!-- Role -->
+          <div class="input-box">
+            <span class="details">Role</span>
+            <select [(ngModel)]="registerForm.value['role']" name="role" id="role" required #role="ngModel">
+              <option *ngFor="let option of roleOptions" [value]="option">{{ option }}</option>
+            </select>
+            <mat-error *ngIf="role.touched && role.invalid" class="error-message">
+                <span *ngIf="role.errors?.['required']">Please select a role.</span>
+            </mat-error>
+          </div>
+          <div class="input-box">
+            <span class="details">Upload CV (PDF)</span>
+            <input type="file" (change)="onCVFileSelected($event)" name="cv" id="cv">
+         </div>
+         <div class="input-box">
+          <span class="details">Upload Your Profile picture</span>
+          <input type="file" (change)="onFileSelected($event)" name="image" id="image">
+         </div>
+         
+          
+        </div>
+       
+        <div class="button">
+          <input type="submit" value="Register" [disabled]="validateSubmit() || !(registerForm.valid && registerForm.dirty)" >
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

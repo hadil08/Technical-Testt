@@ -1,0 +1,8 @@
+.chart-container {
+    width: 100%; /* Ensure the chart fills the container */
+    height: 100%; /* Ensure the chart fills the container */
+    display: flex;
+    justify-content: center; /* Center the chart horizontally */
+    align-items: center; /* Center the chart vertically */
+  }
+  

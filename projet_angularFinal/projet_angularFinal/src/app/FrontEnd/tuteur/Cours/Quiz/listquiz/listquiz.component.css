@@ -1,0 +1,53 @@
+/* quiz.component.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quiz-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.quiz-card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.quiz-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #007bff; /* Blue color for quiz titles */
+}
+
+.question-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.question-text {
+  font-weight: bold;
+}
+
+.answer-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.answer {
+  margin-bottom: 5px;
+}
+
+.correct-answer {
+  font-style: italic;
+  color: #28a745; /* Green color for correct answer */
+}

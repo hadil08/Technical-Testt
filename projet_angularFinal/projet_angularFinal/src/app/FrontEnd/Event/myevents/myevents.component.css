@@ -1,0 +1,110 @@
+
+
+.list-events {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+.big-text {
+  font-size: larger; /* You can adjust the size as needed */
+}
+
+.adjustable-btn {
+  /* Set initial size here */
+  font-size: 14px; /* Adjust as needed */
+  padding: 8px 12px; /* Adjust as needed */
+}
+
+/* Adjust the size for larger screens */
+@media (min-width: 768px) {
+  .adjustable-btn {
+      font-size: 16px; /* Adjust as needed */
+      padding: 10px 14px; /* Adjust as needed */
+  }
+}
+.action-header {
+  width: 150px; /* Adjust the width as needed */
+}
+.header-container {
+background-image: url('src/assets/backOffice/img/events-1.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+background-size: cover;
+background-position: center;
+padding: 70px 0; /* Increase padding to make the header larger */
+margin-bottom: 20px; /* Add margin to separate it from the content below */
+}
+.modal-content {
+max-width: 200px; /* Adjust the width as needed */
+}
+.mat-table {
+width: 100%;
+}
+
+.mat-header-row,
+.mat-row {
+border-bottom: 1px solid #dee2e6; /* Bootstrap border color */
+}
+
+.mat-header-cell,
+.mat-cell {
+padding: 0.75rem; /* Bootstrap padding */
+}
+
+.mat-header-cell {
+background-color: #f8f9fa; /* Bootstrap table header background color */
+font-weight: bold;
+}
+
+.mat-cell {
+background-color: #fff;
+}
+
+.mat-row:hover {
+background-color: #f2f2f2;
+}
+
+/* Optional: Adjustments for specific columns */
+.mat-cell:nth-child(5),
+.mat-cell:nth-child(6),
+.mat-cell:nth-child(7) {
+text-align: center;
+}
+/* Define custom button styles */
+.btn-custom-edit,
+.btn-custom-delete {
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  font-size: 1rem; /* Adjust font size as needed */
+  margin-right: 10px; /* Add space between buttons */
+}
+
+.btn-custom-edit {
+  background-color: #007bff; /* Default blue color */
+  border-color: #007bff;
+  color: #fff; /* Text color */
+}
+
+.btn-custom-edit:hover {
+  background-color: #0056b3; /* Lighter blue on hover */
+  border-color: #0056b3;
+}
+
+.btn-custom-delete {
+  background-color: #3498db; /* Another shade of blue */
+  border-color: #3498db;
+  color: #fff; /* Text color */
+}
+
+.btn-custom-delete:hover {
+  background-color: #2980b9; /* Lighter blue on hover */
+  border-color: #2980b9;
+}
+.btn-black {
+background-color: #000;
+color: #fff;
+padding: 0.5rem 1rem;
+border: none;
+border-radius: 5px;
+text-decoration: none;
+}
+
+.btn-black:hover {
+background-color: #333; /* Darker shade of black on hover */
+}

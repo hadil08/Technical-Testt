@@ -1,0 +1,11 @@
+.text-success {
+    color: green;
+}
+
+.text-danger {
+    color: red;
+}
+.table tbody tr:hover {
+    background-color: #04b0b0; /* Changez cette couleur selon vos préférences */
+  }
+  

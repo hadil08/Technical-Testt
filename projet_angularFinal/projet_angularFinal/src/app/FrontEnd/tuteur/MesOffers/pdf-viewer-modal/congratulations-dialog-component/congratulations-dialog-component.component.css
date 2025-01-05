@@ -1,0 +1,54 @@
+.congratulations-dialog-container {
+    position: relative;
+  }
+  
+  .ribbon-left, .ribbon-right {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: #f48fb1;
+    top: 0;
+    transform: translateY(-100%);
+  }
+  
+  .ribbon-left {
+    left: 0;
+  }
+  
+  .ribbon-right {
+    right: 0;
+  }
+.congratulations-dialog-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .congratulations-dialog-title {
+    font-size: 24px;
+    color: #4caf50;
+    margin-bottom: 10px;
+  }
+  
+  .congratulations-dialog-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .congratulations-dialog-button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .congratulations-dialog-button:hover {
+    background-color: #45a049;
+  }
+  

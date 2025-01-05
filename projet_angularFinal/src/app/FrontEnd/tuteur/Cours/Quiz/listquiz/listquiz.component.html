@@ -1,0 +1,28 @@
+<!-- quiz.component.html -->
+<app-header></app-header>
+
+<div class="container">
+  <h2 class="quiz-heading">Liste des Quiz</h2>
+
+  <!-- Loop through quizzes -->
+  <div *ngFor="let quiz of quizzes" class="quiz-card">
+    <h3 class="quiz-title">{{ quiz.title }}</h3>
+   
+    <a  
+    class="btn text-danger"   (click)="deleteQuiz(quiz.idQ)"> <img class="img-fluid" src="assets/frontOffice/img/supprim.png" alt="" style="width: 30px" >
+                             <span class="material-icons"   > </span>
+                           </a>
+    <!-- Loop through questions of each quiz -->
+    <div *ngFor="let question of quiz.questions" class="question-card">
+      <div class="card-content">
+        <p class="question-text">{{ question.question }}</p>
+        <ul class="answer-list">
+          <li class="answer">- {{ question.rep1 }}</li>
+          <li class="answer">- {{ question.rep2 }}</li>
+          <li class="answer">- {{ question.rep3 }}</li>
+          <li class="correct-answer">Réponse Correcte: {{ question.repCorrect }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

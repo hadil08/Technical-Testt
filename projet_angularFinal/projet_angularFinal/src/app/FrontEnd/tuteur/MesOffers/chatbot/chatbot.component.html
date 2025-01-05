@@ -1,0 +1,21 @@
+<div>
+    <!-- Chat Circle -->
+    <div class="chatbot-circle" (click)="toggleChat()">
+     aazaza  <span class="conversation-indicator"></span>
+    </div>
+  
+    <!-- Chat Window -->
+    <div *ngIf="isOpen" class="chatbot-window">
+        <div id="tlkio" data-channel="skytech" style="width: 100%; height: 400px">
+			<iframe
+				src="//embed.tlk.io/skytech"
+				width="100%"
+				height="100%"
+				frameborder="0"
+				style="margin-bottom: -8px"
+			></iframe>
+		</div>
+		<script async src="http://tlk.io/embed.js" type="text/javascript"></script>
+    </div>
+  </div>
+  

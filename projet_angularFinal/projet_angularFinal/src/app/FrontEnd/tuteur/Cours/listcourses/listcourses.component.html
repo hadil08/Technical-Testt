@@ -1,0 +1,104 @@
+<app-header></app-header>
+<div class="banner">
+  <!-- Your banner content goes here -->
+<h2>Welcome to Our Unique Teaching Experience</h2>
+<p>Discover a wide range of courses tailored to provide an exceptional learning journey for your students.</p>
+</div>
+<div class="container">
+  <h2>List of courses</h2>
+
+  <div class="border mb-3">
+    <button class="btn btn-md btn-outline-primary" (click)="open(content)">
+      <i class="fa fa-user"></i> Add cours
+    </button>
+  </div>
+ 
+  <div class="card mx-3 my-5">
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Pdf</th>
+        <th>Actions</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cours of coursList.slice(pageIndex * pageSize, (pageIndex + 1) * pageSize)">
+        <td>{{ cours.title }} </td>
+        <td><a href="{{ cours.path }}">Open </a></td>
+        <td>
+         
+          <a  
+           class="btn text-danger"    (click)="openPopup(cours.idC)"> <img class="img-fluid" src="assets/frontOffice/img/modif.png" alt="" style="width: 30px" >
+                                    <span class="material-icons"   > </span>
+                                  </a>
+          
+          <a  
+          class="btn text-danger"    (click)="deleteCours(cours.idC)"> <img class="img-fluid" src="assets/frontOffice/img/supprim.png" alt="" style="width: 30px" >
+                                   <span class="material-icons"   > </span>
+                                 </a>
+                              
+          <a  
+          class="btn text-danger"    (click)="goaddquiz(cours.idC)"> <img class="img-fluid" src="assets/frontOffice/img/plus.png" alt="" style="width: 30px" >
+                                   <span class="material-icons"   > </span>
+                                 </a>
+          <a  
+          class="btn text-danger"    (click)="golistquiz(cours.idC)"> <img class="img-fluid" src="assets/frontOffice/img/examen.png" alt="" style="width: 30px" >
+                                   <span class="material-icons"   > </span>
+                                 </a>
+                                
+                                 <a>
+                                  <div class="rating-section">
+                                  <ngb-rating [max]="5" [rate]="cours.averageRating || 0" [readonly]="true"></ngb-rating>
+                                  
+                              </div> </a>
+                             
+                            </td>
+        
+      </tr>
+    </tbody>
+  </table>
+  <div class="container custom-pagination">
+    <mat-paginator [length]="coursList.length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="[2, 5, 10]"
+                   (page)="onPageChange($event)"
+                   showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div> 
+</div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add cours</h4>
+    <button class="btn btn-md btn-outline-primary custom-button" type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="success-message" *ngIf="ajoutReussi">
+      Le cours a été ajouté avec succès.
+    </div>
+    <form  (ngSubmit)="onSubmit()" class="add-cours-form">
+      <div class="form-group">
+        <label for="title">Titre :</label>
+        <input type="text" id="title" name="title" [(ngModel)]="newCours.title" required>
+      </div>
+     
+      <div class="form-group">
+        <label for="file">File (PDF):</label>
+        <input type="file" id="cours" (change)="onFileChange($event)" accept=".pdf" required>
+      </div>
+      <button class="fa fa-user" type="submit"  >Add Course</button>
+    </form>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Messages</title>
+  </head>
+  <body>
+      <div id="messageContainer"></div>
+      <script src="script.js"></script>
+  </body>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="chart-container">
+        <ngx-charts-pie-chart
+          [view]="[800, 600]" 
+          [results]="chartData"
+          [legend]="true"
+          [legendPosition]="legendPosition"
+          [labels]="true"
+          (select)="onSelect($event)">
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="chart-container">
+        <h2>Banned User Statistics</h2>
+        <div style="height: 300px;">
+          <ngx-charts-bar-vertical
+            [view]="[400, 300]"
+            [results]="bannedUserChartData"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="false"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            xAxisLabel="Users"
+            yAxisLabel="Count"
+          ></ngx-charts-bar-vertical>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <h2>Edit Room</h2>
+  <form (submit)="saveChanges()">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="room.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" [(ngModel)]="room.description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="capacity">Capacity:</label>
+      <input type="number" class="form-control" id="capacity" [(ngModel)]="room.capacity" name="capacity" required>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl" hidden>Image URL:</label>
+      <input  hidden type="text" class="form-control" id="imageUrl" [(ngModel)]="room.imageUrl" name="imageUrl" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+</div>

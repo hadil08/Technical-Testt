@@ -1,0 +1,18 @@
+<div class="chat-container">
+  <header class="chat-header">
+    <h4> chat Assitance Room </h4>
+  </header>
+  <main class="chat-history"></main>
+<ng-container *ngFor="let item of chatHistory ">
+<div>
+  <i class="fa fa-user"  [ngStyle]="{'color': item.from === 'user' ? 'black' : ''}" [ngClass]="{'fa-user-cap': item.from === 'bot'}"></i>
+<span> {{item.message}}</span>
+</div>
+</ng-container>
+  <ng-container *ngIf="loading">
+  </ng-container>
+  <footer class="chat-input">
+    <input type="text" id="message-input" placeholder="type a message here...." [(ngModel)]="prompt">
+    <button id="send-button" class="btn-info" (click)="sendData()"> send</button>
+  </footer>
+</div>

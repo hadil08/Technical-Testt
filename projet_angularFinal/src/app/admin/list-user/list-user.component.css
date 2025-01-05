@@ -1,0 +1,236 @@
+
+  /* manage-users.component.css */
+
+ 
+/* Styling for the table */
+
+table {
+    width: 100%; /* Adjust width as needed */
+    max-width: 1200px; /* Increase maximum width */
+    border-collapse: collapse;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adding shadow */
+    border-radius: 20px; /* More curved border */
+    margin: 0 auto; /* Center the table */
+  }
+  
+    
+    th, td {
+    padding: 8px; /* Adjust padding */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    }
+    
+    /* Styling for header */
+    th {
+    background-color: #4c70af; /* Fresh green color for headers */
+    color: white; /* White text color */
+    
+    }
+    
+    /* Alternating row colors */
+    tr:nth-child(even) {
+    background-color: #f0f0f0; /* Light gray background for even rows */
+    }
+    
+    /* Styling for the toggle switch */
+    .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    }
+    
+    /* Styling for the slider */
+    .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+    }
+    
+    /* Styling for the slider before state */
+    .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+    }
+    
+    /* Styling for the checked state */
+    input:checked + .slider {
+    background-color: #2196F3;
+    }
+    
+    /* Styling for the checked state */
+    input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    }
+    
+    /* Styling for the label text */
+    .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
+    
+    /* Display "Blocked" or "Active" based on status */
+    .blocked {
+      color: red; /* or any other color representing blocked status */
+    }
+    
+    .active {
+      color: green; /* or any other color representing active status */
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+    }
+    
+    .user-image {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    
+    input:checked + .slider {
+      background-color: #007bff;
+    }
+    
+    input:focus + .slider {
+      box-shadow: 0 0 1px #007bff;
+    }
+    
+    input:checked + .slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+    
+    .slider.round:before {
+      border-radius: 50%;
+    }
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      margin: 0px;
+      padding: 0px;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #eeeef1;
+      font-family: 'Lato' !important;
+    }
+    /* Styling for the search button */
+    .search-container {
+      position: relative;
+      width: 300px; /* Adjust width as needed */
+      margin: 50px auto; /* Adjust margin as needed */
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+    
+    .search-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      background-color: #007bff; /* Adjust color as needed */
+      border: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .search-btn i {
+      color: #fff; /* Adjust color as needed */
+      font-size: 18px;
+      margin-top: 4px; /* Adjust margin as needed */
+    }
+    
+    /* Styling for the table container */
+    .table-container {
+      margin-bottom: 20px; /* Add space between table and pagination controls */
+    }
+    input{
+      height: 100%;
+      width: 100%;
+      outline: none;
+      font-size: 20px;
+      padding-left: 20px;
+      border: 1px solid white;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+    }
+     input:focus,
+    input:valid{
+      border-color: #4158d0;
+    }

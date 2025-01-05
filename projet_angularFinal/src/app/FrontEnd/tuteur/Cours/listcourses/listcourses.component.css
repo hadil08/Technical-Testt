@@ -1,0 +1,151 @@
+/* Custom styles for the second HTML snippet */
+
+/* Adjusting the modal dialog */
+.modal-dialog {
+  max-width: 800px;
+}
+
+/* Styling the modal header */
+.modal-header {
+  background-color: #0d6efd;
+  color: #fff;
+  border-bottom: 1px solid #45648d;
+}
+
+/* Styling the modal title */
+.modal-title {
+  font-weight: bold;
+}
+
+/* Styling the close button */
+.close {
+  color: #fff;
+}
+
+/* Styling the form elements */
+.add-cours-form .form-group label {
+  font-weight: bold;
+}
+
+.add-cours-form input[type="text"],
+.add-cours-form input[type="file"] {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+/* Styling the submit button */
+.add-cours-form .submit-button {
+  
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.add-cours-form .submit-button:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Styling success message */
+.success-message {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  border-radius: 5px;
+}
+
+/* Styling table headers */
+.table thead th {
+  background-color: #b9d8fa;
+  color: #050505;
+}
+
+/* Styling table rows */
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* Styling buttons within table */
+.table tbody tr button {
+  margin-right: 5px;
+}
+
+/* Styling the card */
+.card {
+  border: 1px solid #020202; /* Added border */
+  border-radius: 0.25rem;
+  margin-top: 20px; /* Adjust as needed */
+}
+/* Custom styles for the button */
+.btn-outline-primary.custom-button {
+  color: #007bff;
+  background-color: transparent;
+  background-image: none;
+  border-color: #007bff;
+}
+
+.btn-outline-primary.custom-button:hover {
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
+}
+/* Exemple de styles CSS personnalisés pour la pagination */
+/* CSS personnalisé pour la pagination */
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.custom-pagination .page-item {
+  margin: 0 5px;
+}
+
+.custom-pagination .page-link {
+  color: #007bff;
+  background-color: transparent;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.custom-pagination .page-link:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.custom-pagination .page-item.active .page-link {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.custom-pagination .page-link:focus {
+  box-shadow: none;
+}
+
+
+.banner {
+  background-image: url('src/assets/frontOffice/img/course-2.jpg'); /* Add your banner image URL */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 70px; /* Adjust padding as needed */
+  text-align: center;
+  color: #060606; /* Text color */
+}
+ngb-rating{
+  color: #FFC107;
+  font-size: 30px;
+}

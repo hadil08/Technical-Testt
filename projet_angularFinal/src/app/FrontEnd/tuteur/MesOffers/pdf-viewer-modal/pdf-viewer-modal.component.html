@@ -1,0 +1,17 @@
+<div class="container">
+  <iframe [src]="safePdfUrl" width="100%" height="100%" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: none;"></iframe>
+</div>
+
+<div class="controls">
+  <button class="control-button" (click)="previousPdf()">Précédent</button>
+  <button class="control-button" (click)="nextPdf()">Suivant</button>
+</div>
+
+<div class="finish-button-container" *ngIf="showFinishButton">
+  <button class="finish-button" (click)="onTerminer()" [disabled]="!checkAllPdfsViewed()">Terminer</button>
+</div>
+
+<!-- Afficher le QR code lorsque qrCodeDataUrl est défini -->
+<div class="qr-code-container" *ngIf="qrCodeDataUrl">
+  <img [src]="qrCodeDataUrl" alt="QR Code" class="qr-code">
+</div>

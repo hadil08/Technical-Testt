@@ -1,0 +1,213 @@
+<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body>
+ 
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#salle-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-house"></i><span>Gestion Participation</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="salle-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+          <li>
+            <a routerLink="/demandeparticipation">
+              <i class="bi bi-circle"></i><span>Afficher Participations</span>
+            </a>
+            <a routerLink="/statistiques">
+              <i class="bi bi-circle"></i><span>Afficher Statistiques</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#cours-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-newspaper"></i><span>Gestion offres</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="cours-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+          <li>
+            <a routerLink="/demandeoffer">
+
+              <i class="bi bi-circle" ></i><span>Afficher offres</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#cours-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-newspaper"></i><span>Gestion Cours</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="cours-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/statcours">
+              <i class="bi bi-circle"></i><span>Statistics Cours</span>
+            </a>
+          </li>
+
+
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#cours-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-newspaper"></i><span>Gestion Room</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="cours-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="/backRoom">
+              <i class="bi bi-circle"></i><span>backRoom</span>
+            </a>
+          </li>
+          <li>
+            <a href="/backposte">
+              <i class="bi bi-circle" ></i><span>backposte</span>
+            </a>
+          </li>
+  
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#rendezvous-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-calendar-check"></i><span>Gestion évènements</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="rendezvous-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+
+          <li>
+            <a routerLink="/eventstat">
+              <i class="bi bi-circle"></i><span>Statistics</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+ 
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-login.html">
+          <i class="bi bi-box-arrow-in-right"></i>
+          <span>Login</span>
+        </a>
+      </li><!-- End Login Page Nav -->
+
+
+
+
+
+    </ul>
+
+  </aside><!-- End Sidebar-->
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="">Home</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+  
+    <section class="section dashboard">
+        <div class="container">
+          <div class="mt-5">
+            <div class="search-container" style="padding-top: 80px;">
+              <input type="text" class="input-search" placeholder="Type to Search..." [(ngModel)]="searchText" (input)="filterUsers()">
+            </div>
+            <!-- Table -->
+            <table>
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Contact Number</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Display paged users -->
+                <tr *ngFor="let user of pagedUsers">
+                  <td>
+                    <div class="user-info">
+                      <img src="{{ user.image }}" class="user-image" alt="User Image">
+                      <span>{{ user.userName }}</span>
+                    </div>
+                  </td>
+                  <td>{{ user.userFirstName }}</td>
+                  <td>{{ user.userLastName }}</td>
+                  <td>{{ user.contactNumber }}</td>
+                  <td [ngClass]="{ 'blocked': user.banned, 'active': !user.banned }">
+                    {{ user.banned ? 'Blocked' : 'Active' }}
+                  </td>          
+                  <td>
+                    <!-- Replace Delete button with Toggle Switch -->
+                    <label class="switch">
+                      <input type="checkbox" [checked]="!user.banned" (change)="unbanAndResetAttempts(user.userName)">
+                      <span class="slider"></span>
+                    </label>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+      
+            <!-- Pagination -->
+            <mat-paginator [pageSize]="pageSize" [pageIndex]="currentPage" [length]="filteredUsers.length" (page)="pageChanged($event)">
+            </mat-paginator>
+          </div>
+        </div>
+      
+        <div class="container mt-5" style="margin-top: 10px;">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="chart-container">
+                <ngx-charts-pie-chart
+                  [view]="[600, 400]" 
+                  [results]="chartData"
+                  [legend]="true"
+                  [legendPosition]="legendPosition"
+                  [labels]="true"
+                  (select)="onSelect($event)">
+                </ngx-charts-pie-chart>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="chart-container">
+                <h2>Banned User Statistics</h2>
+                <div style="height: 200px;">
+                  <ngx-charts-bar-vertical
+                    [view]="[400, 300]"
+                    [results]="bannedUserChartData"
+                    [xAxis]="true"
+                    [yAxis]="true"
+                    [legend]="false"
+                    [showXAxisLabel]="true"
+                    [showYAxisLabel]="true"
+                    xAxisLabel="Users"
+                    yAxisLabel="Count"
+                  ></ngx-charts-bar-vertical>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+  
+  </main><!-- End #main -->

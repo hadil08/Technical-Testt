@@ -1,0 +1,48 @@
+.btn-success:hover,
+.btn.bg-gradient-success {
+  background-color: #0d6efd;
+  border-color:#45648d ;
+}
+.btn-success .btn.bg-outline-success,
+.btn.bg-gradient-success .btn.bg-outline-success {
+  border: 1px solid #45648d;
+}
+
+.btn-danger:hover,
+.btn.bg-gradient-danger {
+  background-color: #45648d;
+  border-color: #45648d;
+}
+
+.btn-danger .btn.bg-outline-danger,
+.btn.bg-gradient-danger .btn.bg-outline-danger {
+  border: 1px solid #45648d;
+}
+
+.btn-danger:hover,
+.btn.bg-gradient-danger:hover {
+  background-color: #45648d;
+  border-color: #45648d;
+}
+
+.btn-danger .btn.bg-outline-danger,
+.btn.bg-gradient-danger .btn.bg-outline-danger {
+  border: 1px solid #45648d;
+}
+
+.btn-danger:not(:disabled):not(.disabled).active,
+.btn-danger:not(:disabled):not(.disabled):active,
+.show>.btn-danger.dropdown-toggle,
+.btn.bg-gradient-danger:not(:disabled):not(.disabled).active,
+.btn.bg-gradient-danger:not(:disabled):not(.disabled):active,
+.show>.btn.bg-gradient-danger.dropdown-toggle {
+  color: color-yiq(#45648d);
+  background-color: #45648d;
+}
+
+.btn-danger.focus,
+.btn-danger:focus,
+.btn.bg-gradient-danger.focus,
+.btn.bg-gradient-danger:focus {
+  color: #fff;
+}

@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="header-container">
+  <div class="container d-flex justify-content-center align-items-center">
+    <h1 class="list-events display-3"><strong> Manage your Participations</strong></h1>
+  </div>
+</div>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <!-- Styled phrase before the table -->
+      <div class="text-center mb-4">
+        <h2 style="color: rgb(76, 155, 192); font-weight: bold;">List Participations</h2>
+      </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="table-responsive">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Column definitions -->
+          <!-- Participant Name Column -->
+          <ng-container matColumnDef="participantName">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Participant Name</th>
+            <td mat-cell *matCellDef="let part">{{ part.user.userName }}</td>
+          </ng-container>
+
+          <!-- Event Name Column -->
+          <ng-container matColumnDef="eventName">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Event Name</th>
+            <td mat-cell *matCellDef="let part">{{ part.event.nom }}</td>
+          </ng-container>
+
+          <!-- Event Description Column -->
+          <ng-container matColumnDef="eventDescription">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Event Description</th>
+            <td mat-cell *matCellDef="let part">{{ part.event.description }}</td>
+          </ng-container>
+
+          <!-- Event Date Column -->
+          <ng-container matColumnDef="eventDate">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Event Date</th>
+            <td mat-cell *matCellDef="let part">{{ part.event.date | date: 'short' }}</td>
+          </ng-container>
+
+          <!-- Places Available Column -->
+          <ng-container matColumnDef="placesAvailable">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Places Available</th>
+            <td mat-cell *matCellDef="let part">{{ part.event.nombreDePlace }}</td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Status</th>
+            <td mat-cell *matCellDef="let part">{{ part.status }}</td>
+          </ng-container>
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef style="font-weight: bold;">Action</th>
+            <td mat-cell *matCellDef="let part">
+              <div class="d-flex justify-content-around">
+                <button class="button accept-button" (click)="acceptParticipation(part)">Accept</button>
+                <button class="button reject-button" (click)="rejectParticipation(part)">Reject</button>
+                <button class="button archive-button" (click)="archiveParticipation(part)">Archive</button>
+              </div>
+            </td>
+          </ng-container>
+
+          <!-- Table rows -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let part; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <mat-paginator [pageSizeOptions]="[3, 6, 9, 20]" showFirstLastButtons></mat-paginator>
+</div>

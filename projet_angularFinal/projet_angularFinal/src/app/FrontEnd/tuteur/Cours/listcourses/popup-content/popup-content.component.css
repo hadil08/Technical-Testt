@@ -1,0 +1,64 @@
+/* Style for the modal-body */
+.modal-body {
+  padding: 20px;
+}
+
+/* Style for form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Style for labels */
+label {
+  font-weight: bold;
+}
+
+/* Style for input fields */
+input[type="text"],
+input[type="file"] {
+  width: calc(100% - 22px); /* Adjust width to account for padding */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for submit button */
+.submit-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style for submit button on hover */
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Style for success message */
+.success-message {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  border-radius: 5px;
+}
+
+/* Style for the form container */
+.modif-cours-form {
+  max-width: 400px; /* Set maximum width for the form */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Style for close button */
+.close-button {
+  position: absolute;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.modal-content {
+  max-width: 600px; /* Définir une largeur maximale pour la pop-up */
+}

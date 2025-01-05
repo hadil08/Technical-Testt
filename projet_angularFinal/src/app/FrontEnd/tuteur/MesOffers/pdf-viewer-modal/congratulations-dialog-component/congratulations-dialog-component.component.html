@@ -1,0 +1,7 @@
+<div class="congratulations-dialog-container" [@fadeInOut]="true">
+    <h2 class="congratulations-dialog-title">Félicitations !</h2>
+    <p class="congratulations-dialog-message">{{ data.message }}</p>
+    <button class="congratulations-dialog-button" (click)="dialogRef.close()">Fermer</button>
+    <div class="ribbon-left" *ngIf="showRibbons"></div>
+    <div class="ribbon-right" *ngIf="showRibbons"></div>
+  </div>

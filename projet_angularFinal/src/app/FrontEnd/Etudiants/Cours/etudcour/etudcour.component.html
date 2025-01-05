@@ -1,0 +1,59 @@
+
+
+
+
+<app-header></app-header>
+
+<div class="banner">
+    <!-- Your banner content goes here -->
+    <h1>Welcome to Our Courses Platform</h1>
+    <p>Discover a wide range of courses to enhance your skills.</p>
+  </div>
+  <div class="container-xxl py-5">
+    <div class="container">
+        <div class="border p-4">
+            <h2 class="text-center mb-4">Courses List</h2>
+            <div class="row g-4">
+                <!-- Repeat this block for each course in coursList -->
+                <a *ngFor="let cours of coursList; let i = index"  target="_blank" class="col-lg-3 col-sm-6 wow fadeInUp" [attr.data-wow-delay]="i * 0.1 + 's'">
+                  <div class="rating-section">
+                    <ngb-rating [max]="1" [rate]="cours.totalRatings || 0" [readonly]="true"></ngb-rating>
+                    <div class="rating-value">{{ cours.totalRatings ? cours.totalRatings.toFixed(1) : 'N/A' }}/5</div>
+                </div>
+                    <div class="service-item text-center pt-3">
+                      
+                        <div class="p-4">
+                         
+                            <!-- Include the Font Awesome library -->
+                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                            <!-- Use the correct classes for the icon -->
+                            <i class="fas fa-graduation-cap fa-3x text-primary mb-4"></i>
+                            <h5 class="mb-3 title-text">{{ cours.title }}</h5>
+                             <button class="btn btn-primary" (click)="openPopup(cours.idC)">Quiz List</button>
+                            <a [href]="cours.path"  class="btn btn-primary btn-second">Open</a>
+                            <h1>      </h1>
+                            <ngb-rating [max]="5"(click)="GetRating(cours.idC) " [formControl]="ratingcontrol"></ngb-rating>
+                        </div>
+                    </div>
+                </a>
+                <!-- End of repeated block -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Dialog Template -->
+<ng-template #quizDialog let-data>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Quiz list by cours</h4>
+    </div>
+  
+    <ul class="quiz-list">
+      <li *ngFor="let quiz of quizzes">
+        <button class="btn btn-primary" (click)="openquestions(quiz.idQ)" > {{ quiz.title }} </button>
+        
+        <!-- Include other details of the quiz as needed -->
+      </li>
+    </ul>
+    
+  
+  

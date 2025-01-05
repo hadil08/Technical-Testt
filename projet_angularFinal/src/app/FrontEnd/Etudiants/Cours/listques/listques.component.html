@@ -1,0 +1,43 @@
+<div class="container">
+  
+  <div *ngIf="message" class="message">
+      {{ message }}
+  </div>
+
+  <!-- Loop through quizzes -->
+  <div id="quizzz" class="quiz-card">
+      {{display}}
+      <!-- Loop through questions of each quiz -->
+      <div *ngFor="let question of questions" class="question-card">
+          <div class="card-content">
+              <a>
+                  <p class="question-text">{{ question.question }}</p>
+              </a>
+              <a class="btn text-danger" (click)="speak(question.question)">
+                  <img class="img-fluid" src="assets/frontOffice/img/sound.png" alt="" style="width: 30px">
+                  <span class="material-icons"></span> <!-- Assurez-vous de remplacer ICON_NAME_HERE par la classe de votre icône -->
+              </a>
+              <ul class="answer-list">
+                  <!-- Utilisation de boutons radio pour les réponses -->
+                  <li class="answer">
+                      <input type="radio" name="answer{{ question.idques }}" [value]="question.rep1">
+                      <label>{{ question.rep1 }}</label>
+                  </li>
+                  <li class="answer">
+                      <input type="radio" name="answer{{ question.idques }}" [value]="question.rep2">
+                      <label>{{ question.rep2 }}</label>
+                  </li>
+                  <li class="answer">
+                      <input type="radio" name="answer{{ question.idques }}" [value]="question.rep3">
+                      <label>{{ question.rep3 }}</label>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+  <!-- Bouton "Terminer" pour soumettre les réponses -->
+  <button class="btn btn-primary" (click)="terminerQuiz()">Terminer</button>
+</div>
+
+  

@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<div class="welcome-container text-center my-4" style="background-color: #f8f9fa; padding: 20px;">
+  <h2 class="display-3 fw-bold text-primary" style="color: black;">Join Us For a Better Experience</h2>
+</div>
+<div class="container">
+  <div class="row g-4 justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-8 wow fadeInUp" data-wow-delay="0.3s" *ngFor="let event of events">
+      <div class="course-item bg-light rounded" style="max-width: 350px;"> <!-- Adjusted width -->
+        <div class="position-relative overflow-hidden" style="height: 250px;">
+          <img class="img-fluid rounded-top" [src]="event.photoUrl" alt="Event Image" style="width: 100%; height: 100%;">
+          <div class="w-100 d-flex justify-content-center align-items-center position-absolute bottom-0 start-0" style="height: 100%;"> <!-- Centered button -->
+            <button class="btn btn-sm btn-primary px-3 custom-button "  (click)="participate(event.numEvent)">Participate</button>
+          </div>
+        </div>
+        <div class="text-center p-3">
+          <h3 class="mb-0"><strong>{{ event.nom }}</strong></h3>
+          <div class="mb-2">
+            <small class="fa fa-star text-primary"></small>
+            <small class="fa fa-star text-primary"></small>
+            <small class="fa fa-star text-primary"></small>
+            <small class="fa fa-star text-primary"></small>
+            <small class="fa fa-star text-primary"></small>
+          </div>
+          <h4 class="mb-3">Description: {{ event.description }}</h4>
+          <div class="d-flex justify-content-between">
+            <small class="text-primary"><i class="fa fa-user-tie me-1"></i>{{ event.date | date: 'short' }}</small>
+            <small class="text-primary"><i class="fa fa-clock me-1"></i>{{ event.user.userName }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer>
