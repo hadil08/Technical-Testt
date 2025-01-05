@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TwilioserviceService {
-  private twilioSid = 'AC97ad6570c6ee30b3cfb11ac6ee4522ac';
-  private twilioToken = '2c897c90e62efe1f372173b7895caa4d';
-  private twilioPhoneNumber = '+12513166807';
+  private twilioSid = '';
+  private twilioToken = '';
+  private twilioPhoneNumber = '';
   constructor(private http: HttpClient) {}
 
   sendSMS(to: string, body: string) {
@@ -33,3 +33,4 @@ export class TwilioserviceService {
     return this.http.post(url, formData.toString(), { headers });
   }
 }
+
